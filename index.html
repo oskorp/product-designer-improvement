@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Communication Plan — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f4f3ef;
+    --border: rgba(0,0,0,0.09);
+    --border2: rgba(0,0,0,0.15);
+    --text: #1a1916;
+    --text2: #5c5a55;
+    --text3: #9a9892;
+    --accent: #2563eb;
+    --accent-bg: #eff6ff;
+    --accent-text: #1d4ed8;
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --green-text: #15803d;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --amber-text: #b45309;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+    --purple-text: #6d28d9;
+    --coral: #dc2626;
+    --coral-bg: #fef2f2;
+    --coral-text: #b91c1c;
+    --teal: #0d9488;
+    --teal-bg: #f0fdfa;
+    --teal-text: #0f766e;
+    --radius: 10px;
+    --radius-lg: 14px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .header h1 { font-size: 17px; font-weight: 600; color: var(--text); }
+  .header p { font-size: 13px; color: var(--text2); margin-top: 2px; }
+  .nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .nav-btn:hover { background: var(--surface2); color: var(--text); }
+  .nav-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+  h2 { font-size: 22px; font-weight: 600; margin-bottom: 0.5rem; }
+  h3 { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
+  h4 { font-size: 14px; font-weight: 600; margin-bottom: 0.25rem; }
+  .lead { font-size: 16px; color: var(--text2); margin-bottom: 2rem; line-height: 1.7; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .badge-blue { background: var(--accent-bg); color: var(--accent-text); }
+  .badge-green { background: var(--green-bg); color: var(--green-text); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .badge-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral-text); }
+  .badge-teal { background: var(--teal-bg); color: var(--teal-text); }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .script-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .script-box em { color: var(--text2); font-style: italic; }
+  .bad-box {
+    background: var(--coral-bg);
+    border-left: 3px solid var(--coral);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .good-box {
+    background: var(--green-bg);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .tip-box {
+    background: var(--amber-bg);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+  }
+  ul { padding-left: 1.25rem; }
+  li { margin-bottom: 0.35rem; color: var(--text); font-size: 14px; }
+  .phrase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+  .phrase-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .phrase-item span { display: block; font-size: 11px; color: var(--text3); margin-top: 3px; }
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin: 1rem 0;
+  }
+  .day-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .day-cell:hover { border-color: var(--accent); }
+  .day-cell.selected { border-color: var(--accent); background: var(--accent-bg); }
+  .day-cell .day-num { font-size: 18px; font-weight: 600; color: var(--text); }
+  .day-cell .day-label { font-size: 10px; color: var(--text3); margin-top: 2px; }
+  .day-cell .day-theme { font-size: 10px; font-weight: 500; margin-top: 4px; }
+  .day-detail { display: none; }
+  .day-detail.active { display: block; }
+  .framework-step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .resource-card {
+    display: flex;
+    gap: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.5rem;
+    align-items: flex-start;
+  }
+  .resource-rank {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text3);
+    min-width: 32px;
+  }
+  .scenario-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .scenario-header {
+    background: var(--surface2);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .scenario-header:hover { background: #eeede9; }
+  .scenario-body { padding: 1.5rem; display: none; }
+  .scenario-body.open { display: block; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  .progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+  .week-tab-row { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .week-tab {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .week-tab:hover { background: var(--surface2); }
+  .week-tab.active { background: var(--text); color: white; border-color: var(--text); }
+  .week-content { display: none; }
+  .week-content.active { display: block; }
+  .milestone-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .milestone {
+    flex: 1;
+    min-width: 180px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .phrase-cat-btn {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .phrase-cat-btn.active { background: var(--purple); border-color: var(--purple); color: white; }
+  .phrase-container { display: none; }
+  .phrase-container.active { display: block; }
+  @media (max-width: 600px) {
+    .main { padding: 1rem; }
+    .day-grid { grid-template-columns: repeat(5, 1fr); }
+    .header { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <h1>Executive Communication Plan</h1>
+      <p>30-day transformation for Product Designers · 60–90 min/day</p>
+    </div>
+    <nav class="nav" role="navigation" aria-label="Sections">
+      <button class="nav-btn active" onclick="showSection('assessment')">Assessment</button>
+      <button class="nav-btn" onclick="showSection('framework')">Framework</button>
+      <button class="nav-btn" onclick="showSection('plan')">30-Day Plan</button>
+      <button class="nav-btn" onclick="showSection('playbook')">Playbook</button>
+      <button class="nav-btn" onclick="showSection('phrases')">Phrases</button>
+      <button class="nav-btn" onclick="showSection('scenarios')">Scenarios</button>
+      <button class="nav-btn" onclick="showSection('roadmap')">Roadmap</button>
+      <button class="nav-btn" onclick="showSection('resources')">Resources</button>
+    </nav>
+  </div>
+</div>
+
+<main class="main" role="main">
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 1: ASSESSMENT
+════════════════════════════════════════════════════════ -->
+<section class="section active" id="assessment">
+  <h2>Assessment</h2>
+  <p class="lead">An honest diagnosis of where you are — and why you communicate the way you do.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="tag-row"><span class="badge badge-coral">Root Cause 1</span></div>
+      <h3>The Translation Gap</h3>
+      <p style="font-size:14px; color:var(--text2); margin-top:0.5rem;">You think in your mother tongue and translate to English under pressure. This creates a 0.5–2 second delay that feels like hesitation. In meetings, this looks like nervousness. It is not — it is a cognitive load problem.</p>
+      <div class="tip-box">Solution: Practice thinking <em>in English</em> during daily activities. Narrate your commute, your lunch, your tasks silently in English.</div>
+    </div>
+    <div class="card">
+      <div class="tag-row"><span class="badge badge-amber">Root Cause 2</span></div>
+      <h3>Perfectionism Paralysis</h3>
+      <p style="font-size:14px; color:var(--text2); margin-top:0.5rem;">Vernacular-medium professionals often fear making grammatical mistakes publicly. This fear silences you before you even speak. The irony: senior executives are evaluated on ideas, not grammar.</p>
+      <div class="tip-box">Reframe: "Will they understand my point?" beats "Is my grammar perfect?" Every time.</div>
+    </div>
+    <div class="card">
+      <div class="tag-row"><span class="badge badge-blue">Root Cause 3</span></div>
+      <h3>No Speaking Structure</h3>
+      <p style="font-size:14px; color:var(--text2); margin-top:0.5rem;">You have knowledge but no container to put it in. When asked a question, you don't have a mental framework to organize the answer before speaking. This causes rambling.</p>
+      <div class="tip-box">Fix: Memorize 3–4 communication frameworks and use them as mental templates in every meeting.</div>
+    </div>
+    <div class="card">
+      <div class="tag-row"><span class="badge badge-purple">Root Cause 4</span></div>
+      <h3>UI-level vs. Strategic Thinking</h3>
+      <p style="font-size:14px; color:var(--text2); margin-top:0.5rem;">Designers often explain what they designed instead of why it matters to the business. Leaders don't care about the button color — they care about conversion, retention, trust, and speed.</p>
+      <div class="tip-box">Shift every sentence from feature to outcome. "I moved this button" → "This change increases checkout completion."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Why some people sound more executive than others</h3>
+    <p style="font-size:14px; color:var(--text2); margin: 0.5rem 0 1rem;">It is not accent. It is not vocabulary. It is these five habits:</p>
+    <div class="card-grid" style="margin:0;">
+      <div>
+        <div class="framework-step">
+          <div class="step-num" style="background:var(--accent-bg); color:var(--accent-text);">1</div>
+          <div><h4>They lead with the conclusion</h4><p style="font-size:13px; color:var(--text2);">Executives say "We should do X, here's why" — not "So I looked at A, then B, then C, and maybe X could work."</p></div>
+        </div>
+        <div class="framework-step">
+          <div class="step-num" style="background:var(--green-bg); color:var(--green-text);">2</div>
+          <div><h4>They speak in threes</h4><p style="font-size:13px; color:var(--text2);">Three reasons. Three options. Three next steps. The brain processes and remembers threes easily.</p></div>
+        </div>
+        <div class="framework-step">
+          <div class="step-num" style="background:var(--amber-bg); color:var(--amber-text);">3</div>
+          <div><h4>They own the silence</h4><p style="font-size:13px; color:var(--text2);">They pause before speaking. They don't fill silence with "umm" or "like." A two-second pause signals confidence.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="framework-step">
+          <div class="step-num" style="background:var(--purple-bg); color:var(--purple-text);">4</div>
+          <div><h4>They ask strategic questions</h4><p style="font-size:13px; color:var(--text2);">Instead of answering everything, they ask "What does success look like?" or "What's the risk if we don't act?" — shaping the conversation.</p></div>
+        </div>
+        <div class="framework-step">
+          <div class="step-num" style="background:var(--teal-bg); color:var(--teal-text);">5</div>
+          <div><h4>They anchor to business impact</h4><p style="font-size:13px; color:var(--text2);">Every design decision is linked to a metric: "This reduces support tickets by 20%" not "This makes the flow easier."</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Common mistakes product designers make in meetings</h3>
+    <div class="card-grid" style="margin-top:0.75rem;">
+      <div>
+        <div class="bad-box">❌ "I made the button blue because it looks better."</div>
+        <div class="bad-box">❌ Explaining every design detail instead of the key decision.</div>
+        <div class="bad-box">❌ Saying "I think maybe we could..." instead of "I recommend..."</div>
+        <div class="bad-box">❌ Presenting mockups without context about the user problem.</div>
+      </div>
+      <div>
+        <div class="good-box">✓ "I chose blue to match our primary CTA pattern — this improves visual hierarchy and has increased conversion in our past tests."</div>
+        <div class="good-box">✓ Lead with the problem, then the decision, then the tradeoffs.</div>
+        <div class="good-box">✓ "Based on the data, I recommend..." — commit to your recommendation.</div>
+        <div class="good-box">✓ Always start with the user problem before showing the solution.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 2: FRAMEWORK
+════════════════════════════════════════════════════════ -->
+<section class="section" id="framework">
+  <h2>Executive Communication Framework</h2>
+  <p class="lead">The mental models that make someone sound senior — regardless of accent or grammar.</p>
+
+  <div class="card">
+    <h3>The BLUF Principle — Bottom Line Up Front</h3>
+    <p style="font-size:14px; color:var(--text2); margin: 0.5rem 0;">Executives are time-starved. They want the conclusion first. Always.</p>
+    <div class="bad-box"><strong style="color:var(--coral-text);">Junior pattern:</strong> "So I looked at the data, spoke to users, reviewed competitor apps, and after thinking about it, I believe we should redesign the onboarding flow."</div>
+    <div class="good-box"><strong style="color:var(--green-text);">Executive pattern:</strong> "I recommend we redesign onboarding. Here's why: users drop off at 60% during setup, our completion rate is half the industry average, and I have three solutions ready to share."</div>
+    <div class="tip-box">🔑 Rule: Say your recommendation in the first sentence. Support it in the next three sentences. Stop.</div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>The SCQA Framework</h3>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:1rem;">For presentations and updates</p>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--accent-bg); color:var(--accent-text);">S</div>
+        <div><h4>Situation</h4><p style="font-size:13px;">Establish shared context. "We launched the new checkout flow 6 weeks ago."</p></div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--amber-bg); color:var(--amber-text);">C</div>
+        <div><h4>Complication</h4><p style="font-size:13px;">The tension. "However, mobile conversion has dropped 12% since launch."</p></div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--purple-bg); color:var(--purple-text);">Q</div>
+        <div><h4>Question</h4><p style="font-size:13px;">The problem to solve. "How do we recover conversion while keeping the new design?"</p></div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--green-bg); color:var(--green-text);">A</div>
+        <div><h4>Answer</h4><p style="font-size:13px;">Your recommendation. "I recommend three targeted fixes: simplify the payment form, add trust signals, reduce steps."</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>The 3W Framework</h3>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:1rem;">For updates in meetings</p>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--accent-bg); color:var(--accent-text);">W1</div>
+        <div><h4>What</h4><p style="font-size:13px;">"We completed the design for the notifications system this week."</p></div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--teal-bg); color:var(--teal-text);">W2</div>
+        <div><h4>So What</h4><p style="font-size:13px;">"This unblocks the engineering team and keeps us on track for the Q3 launch."</p></div>
+      </div>
+      <div class="framework-step">
+        <div class="step-num" style="background:var(--green-bg); color:var(--green-text);">W3</div>
+        <div><h4>Now What</h4><p style="font-size:13px;">"I need 30 minutes with the PM by Thursday to align on edge cases before handoff."</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>The Bridge Technique</h3>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:0.75rem;">For handling questions you're not ready for</p>
+      <ol style="font-size:14px; padding-left:1.25rem;">
+        <li style="margin-bottom:0.5rem;"><strong>Acknowledge</strong> — "That's an important point."</li>
+        <li style="margin-bottom:0.5rem;"><strong>Bridge</strong> — "What I want to highlight is..."</li>
+        <li style="margin-bottom:0.5rem;"><strong>Message</strong> — Go to your prepared point.</li>
+      </ol>
+      <div class="script-box">"That's a good question about the timeline. What I want to make sure we also consider is the user impact — if we rush this, we risk increasing support tickets. Let me walk you through what I'm seeing."</div>
+    </div>
+    <div class="card">
+      <h3>The Pyramid Principle</h3>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:0.75rem;">Structure every answer like an inverted pyramid</p>
+      <div style="text-align:center; font-size:13px;">
+        <div style="background:var(--accent); color:white; padding:8px; border-radius:6px; margin-bottom:4px; font-weight:500;">Answer / Recommendation first</div>
+        <div style="background:var(--accent-bg); color:var(--accent-text); padding:8px; border-radius:6px; margin-bottom:4px;">Key argument 1 · Key argument 2 · Key argument 3</div>
+        <div style="background:var(--surface2); color:var(--text2); padding:8px; border-radius:6px;">Supporting data · User research · Competitive analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Decision-Oriented Communication</h3>
+    <p style="font-size:14px; color:var(--text2); margin-bottom:1rem;">Every communication should drive toward a decision. Before speaking, ask yourself: <em>"What do I need the other person to decide, approve, or understand?"</em></p>
+    <div class="card-grid" style="margin:0;">
+      <div>
+        <h4 style="margin-bottom:0.5rem; color:var(--text2);">End updates with a clear ask:</h4>
+        <div class="script-box">"I've shared the options. I need your decision on which direction to pursue by end of week so we can stay on the sprint schedule."</div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:0.5rem; color:var(--text2);">Frame tradeoffs, not features:</h4>
+        <div class="script-box">"Option A is faster but increases technical debt. Option B takes two more weeks but gives us scalability. I recommend Option B. Here's why."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 3: 30-DAY PLAN
+════════════════════════════════════════════════════════ -->
+<section class="section" id="plan">
+  <h2>30-Day Daily Plan</h2>
+  <p class="lead">Click any week to see the daily schedule. Click a day for the full exercise plan.</p>
+
+  <div class="week-tab-row">
+    <button class="week-tab active" onclick="showWeek(1)">Week 1 — Foundation &amp; Confidence</button>
+    <button class="week-tab" onclick="showWeek(2)">Week 2 — Structured Thinking</button>
+    <button class="week-tab" onclick="showWeek(3)">Week 3 — Executive Communication</button>
+    <button class="week-tab" onclick="showWeek(4)">Week 4 — Influence &amp; Presence</button>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="week-content active" id="week-1">
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Week 1: Foundation &amp; Confidence</h3>
+      <p style="font-size:14px; color:var(--text2);">Goal: Build daily speaking habits, eliminate filler words, and train your brain to think in English under low-pressure conditions.</p>
+    </div>
+    <div id="day-list-1"></div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-content" id="week-2">
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Week 2: Structured Thinking &amp; Speaking</h3>
+      <p style="font-size:14px; color:var(--text2);">Goal: Install the SCQA, BLUF, and Pyramid frameworks as automatic thinking patterns. Practice structuring responses in under 10 seconds.</p>
+    </div>
+    <div id="day-list-2"></div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-content" id="week-3">
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Week 3: Executive Communication</h3>
+      <p style="font-size:14px; color:var(--text2);">Goal: Shift from designer-speak to leader-speak. Practice presenting design decisions in business terms. Develop strategic communication habits.</p>
+    </div>
+    <div id="day-list-3"></div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-content" id="week-4">
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Week 4: Influence, Presence &amp; Stakeholder Management</h3>
+      <p style="font-size:14px; color:var(--text2);">Goal: Apply all frameworks in real-world contexts. Simulate leadership meetings. Build stakeholder influence habits.</p>
+    </div>
+    <div id="day-list-4"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 4: PLAYBOOK
+════════════════════════════════════════════════════════ -->
+<section class="section" id="playbook">
+  <h2>Product Designer Communication Playbook</h2>
+  <p class="lead">Exactly what to say in every meeting type you'll encounter.</p>
+
+  <div id="playbook-tabs" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.5rem;"></div>
+  <div id="playbook-content"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 5: PHRASES
+════════════════════════════════════════════════════════ -->
+<section class="section" id="phrases">
+  <h2>Executive Vocabulary Upgrade</h2>
+  <p class="lead">300+ phrases organized by situation. Click a category to filter.</p>
+  <div id="phrase-cat-buttons"></div>
+  <div id="phrase-content"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 6: SCENARIOS
+════════════════════════════════════════════════════════ -->
+<section class="section" id="scenarios">
+  <h2>Real-World Simulations</h2>
+  <p class="lead">20 realistic scenarios. Click to expand — see the weak response and the strong executive response.</p>
+  <div id="scenario-list"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 7: ROADMAP
+════════════════════════════════════════════════════════ -->
+<section class="section" id="roadmap">
+  <h2>Long-Term Growth Roadmap</h2>
+  <p class="lead">Your 90-day, 6-month, and 12-month milestones.</p>
+
+  <div class="card">
+    <h3>90-Day Milestones</h3>
+    <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
+    <div class="card-grid" style="margin-top:1rem;">
+      <div>
+        <h4 style="color:var(--accent-text);">Month 1 outcomes</h4>
+        <ul style="margin-top:0.5rem;">
+          <li>Filler words reduced by 60%</li>
+          <li>Can structure a 2-min update using SCQA</li>
+          <li>No longer silent in senior meetings</li>
+          <li>Daily 10-min English journaling habit</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--purple-text);">Month 2 outcomes</h4>
+        <ul style="margin-top:0.5rem;">
+          <li>Presenting design decisions in business terms</li>
+          <li>Can handle 80% of unexpected questions without freezing</li>
+          <li>Vocabulary expanded — using executive phrases naturally</li>
+          <li>Positive feedback from at least one stakeholder</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--green-text);">Month 3 outcomes</h4>
+        <ul style="margin-top:0.5rem;">
+          <li>Leading design reviews confidently</li>
+          <li>Influencing at least one product decision per sprint</li>
+          <li>Writing professional Slack and email messages</li>
+          <li>Being asked for design recommendations proactively</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>6-Month Milestones</h3>
+    <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+    <div class="card-grid" style="margin-top:1rem;">
+      <div>
+        <ul>
+          <li>Senior stakeholders know your name and trust your judgment</li>
+          <li>You are asked to present in cross-functional meetings</li>
+          <li>You can handle conflict and disagreement professionally</li>
+          <li>Your written communication is clear and concise</li>
+          <li>You no longer compare yourself to native English speakers</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>You proactively raise risks in meetings before asked</li>
+          <li>You can tell a compelling story about any design decision</li>
+          <li>English is no longer a barrier — ideas flow first</li>
+          <li>You are writing design documents that require minimal editing</li>
+          <li>You mentor junior designers on communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>12-Month Vision</h3>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div style="margin-top:1rem;">
+      <div class="good-box" style="margin-bottom:0.5rem;">You are known in your organization as a designer who communicates with clarity and confidence. People say "Get [your name] on this call."</div>
+      <div class="card-grid" style="margin:0.75rem 0 0;">
+        <div>
+          <h4 style="color:var(--green-text);">Communication</h4>
+          <ul style="margin-top:0.5rem;">
+            <li>Lead quarterly design reviews</li>
+            <li>Present strategy to C-level when needed</li>
+            <li>Influence roadmap decisions</li>
+            <li>Write thought leadership internally</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--purple-text);">English</h4>
+          <ul style="margin-top:0.5rem;">
+            <li>Natural spontaneous speaking</li>
+            <li>No mental translation delay</li>
+            <li>Confident in impromptu situations</li>
+            <li>Professional writing indistinguishable from native speakers</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--amber-text);">Career Impact</h4>
+          <ul style="margin-top:0.5rem;">
+            <li>Ready for senior designer role</li>
+            <li>Design decisions documented and recognized</li>
+            <li>Trusted strategic partner to PMs</li>
+            <li>Salary negotiation from a position of strength</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>English Improvement Roadmap</h3>
+    <div class="card-grid" style="margin-top:0.75rem;">
+      <div>
+        <h4>Daily habits (15 min each)</h4>
+        <ul style="margin-top:0.5rem;">
+          <li><strong>Morning:</strong> Read 1 article from HBR or Fast Company aloud</li>
+          <li><strong>Afternoon:</strong> Replay one of your own voice recordings and note 3 things to improve</li>
+          <li><strong>Evening:</strong> Write a 10-sentence journal entry about what happened at work</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Weekly goals</h4>
+        <ul style="margin-top:0.5rem;">
+          <li>Week 1–4: Eliminate 3 filler words per week</li>
+          <li>Week 5–8: Learn 10 new professional phrases per week</li>
+          <li>Week 9–12: Write 1 professional document (email, PRD section) with no grammar errors</li>
+          <li>Month 4–6: Record and review one 5-min speaking exercise weekly</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-title">Grammar Quick Wins</div>
+    <div class="phrase-grid">
+      <div class="phrase-item">Use "I recommend" not "I think maybe we should"<span>Shows commitment and confidence</span></div>
+      <div class="phrase-item">Use "This will" not "This might"<span>Decisive language builds trust</span></div>
+      <div class="phrase-item">Use "We need to decide" not "We should probably decide"<span>Creates urgency</span></div>
+      <div class="phrase-item">Replace "basically" with the actual explanation<span>"Basically" is a filler, not a word</span></div>
+      <div class="phrase-item">Use "I'd like to add" not "Sorry, can I say something?"<span>Stop apologizing before speaking</span></div>
+      <div class="phrase-item">End sentences. Don't trail off with "...and stuff like that"<span>Incomplete sentences weaken authority</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 8: RESOURCES
+════════════════════════════════════════════════════════ -->
+<section class="section" id="resources">
+  <h2>Resource Library</h2>
+  <p class="lead">Curated by impact — start at #1 in each category.</p>
+
+  <div id="resource-content"></div>
+</section>
+
+</main>
+
+<script>
+// ─── Navigation ───────────────────────────────────────────
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showWeek(n) {
+  document.querySelectorAll('.week-content').forEach(w => w.classList.remove('active'));
+  document.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('week-' + n).classList.add('active');
+  document.querySelectorAll('.week-tab')[n-1].classList.add('active');
+}
+
+// ─── 30-Day Plan Data ─────────────────────────────────────
+const weeks = [
+  {
+    days: [
+      { theme: 'Self-Audit', color: 'badge-blue', obj: 'Understand your current communication baseline', time: '60 min',
+        exercises: ['Record yourself for 5 minutes talking about your latest design project (no preparation)', 'Count filler words: um, like, basically, actually, you know, right', 'Write down 5 sentences you say often in meetings', 'Note where you hesitate and why'],
+        script: '"The project I am currently working on is [project name]. The main goal is to [goal]. The challenge we faced was [challenge]. My solution was [solution]. The impact will be [impact]."',
+        writing: 'Write a 150-word summary of a project you worked on. Keep sentences short. No filler phrases.',
+        reflection: ['What did I notice about my speaking?', 'What is my most common filler word?', 'Where do I hesitate the most?'],
+        outcome: 'A clear picture of your starting point and top 3 areas to improve' },
+      { theme: 'Breath & Pause', color: 'badge-purple', obj: 'Replace filler words with intentional pauses', time: '75 min',
+        exercises: ['Practice the 4-second pause: speak, pause 4 seconds, continue. Do this 20 times.', 'Read any paragraph aloud. Every time you want to say "um", pause instead.', 'Slow down your speech by 20% — most non-native speakers speak too fast when nervous', 'Practice saying: "Let me think about that for a moment." (3 times, naturally)'],
+        script: '"I want to share three things about this design. [pause] First, the user problem. [pause] Second, my recommendation. [pause] Third, the expected impact. [pause] Shall I start?"',
+        writing: 'Rewrite your 150-word summary from Day 1. This time, no sentence should be longer than 15 words.',
+        reflection: ['Did I feel more in control when I paused?', 'What does my voice sound like when I slow down?'],
+        outcome: 'Conscious control over speech pace and silence' },
+      { theme: 'Filler Elimination', color: 'badge-amber', obj: 'Eliminate your top 3 filler words', time: '60 min',
+        exercises: ['Record a 3-minute talk about any topic. Count fillers.', 'Speak for 2 minutes on "What is good design?" — zero fillers allowed. Restart if you use one.', 'Practice: when you feel a filler coming, stop. Take a breath. Continue.', 'Install a rubber band on your wrist — snap it every time you use a filler (awareness tool)'],
+        script: '"This design addresses the user problem of [X]. We tested three approaches. The approach I recommend is [Y] because [reason 1], [reason 2], and [reason 3]."',
+        writing: 'Write a professional Slack message asking for feedback on your design. Max 4 sentences.',
+        reflection: ['Which filler is hardest to eliminate?', 'Does slowing down help me avoid fillers?'],
+        outcome: 'Awareness of fillers + 40% reduction by end of week' },
+      { theme: 'Voice & Tone', color: 'badge-teal', obj: 'Develop a calm, authoritative speaking voice', time: '75 min',
+        exercises: ['Read any page aloud in a deeper, slower voice than normal', 'Practice ending sentences with a falling tone (not rising — rising sounds uncertain)', 'Record the same sentence three ways: nervous, normal, confident. Notice the difference.', 'Stand up while speaking — posture directly affects voice quality'],
+        script: '"Based on my research, I recommend [X]. This addresses the core problem of [Y]. The expected outcome is [Z]. I am happy to walk through the reasoning."',
+        writing: 'Write a 5-bullet design review agenda. Each bullet should be a complete sentence, not a topic.',
+        reflection: ['Does standing change how I sound?', 'What does "confident tone" feel like to me?'],
+        outcome: 'A noticeably more grounded, steady voice' },
+      { theme: 'Sentence Structure', color: 'badge-coral', obj: 'Fix your most common grammar patterns', time: '60 min',
+        exercises: ['List 5 sentences you use in meetings. Rewrite each one in executive language.', 'Practice: "I think we should" → "I recommend we"', 'Practice: "Maybe we could" → "My suggestion is"', 'Practice: "So basically what happened is" → "Here is what happened:"'],
+        script: '"I recommend we prioritize the mobile experience in this sprint. My reasoning: 70% of our users are on mobile, and the current flow has a 40% drop-off. I have three specific fixes ready."',
+        writing: 'Write a professional email to your PM summarizing last week\'s design decisions. Use BLUF — start with the key takeaway.',
+        reflection: ['Which sentence pattern am I changing most?', 'Do I feel more confident with direct sentences?'],
+        outcome: 'Cleaner, more direct sentence construction' },
+      { theme: 'The First 30 Seconds', color: 'badge-blue', obj: 'Master how you open every meeting contribution', time: '75 min',
+        exercises: ['Practice 10 different ways to enter a conversation: "I\'d like to add...", "Building on that...", "From a design perspective...", "The user data shows..."', 'Record yourself making an opening statement about a design decision — 30 seconds max', 'Practice: Take one point you want to make in an upcoming meeting. Rehearse opening it 5 different ways.'],
+        script: '"From a design perspective, the key concern here is the user\'s ability to complete the task without confusion. Let me share what the research shows."',
+        writing: 'Write your professional bio in 3 sentences. What do you do, what problem do you solve, what is your approach?',
+        reflection: ['What opening line felt most natural?', 'How can I use these openings tomorrow in a real meeting?'],
+        outcome: 'Confident, smooth entry into any conversation' },
+      { theme: 'Week 1 Review', color: 'badge-green', obj: 'Consolidate week 1 habits and measure progress', time: '60 min',
+        exercises: ['Re-record the same 5-minute talk from Day 1. Compare.', 'Count fillers again. What\'s the difference?', 'Practice your best opening lines from Day 6.', 'Read your journal entries from the week. What patterns do you see?'],
+        script: '"This week I worked on [X]. The progress I made: [Y]. The challenge I still face: [Z]. My plan for next week: [action]."',
+        writing: 'Write a weekly work update to a hypothetical manager using the 3W framework (What / So What / Now What).',
+        reflection: ['What is the single biggest improvement this week?', 'What will I do differently next week?', 'Which habit was hardest to build?'],
+        outcome: 'Measurable reduction in fillers; clear progress on confidence and pace' }
+    ]
+  },
+  {
+    days: [
+      { theme: 'BLUF Practice', color: 'badge-blue', obj: 'Internalize "Bottom Line Up Front" as your default', time: '75 min',
+        exercises: ['Take 5 topics from your work. For each, write the BLUF in one sentence.', 'Practice: State your recommendation in 10 words or fewer, then expand.', 'Rewrite 3 past Slack messages using BLUF structure.'],
+        script: '"Recommendation: We delay the feature by one week. Reason: User testing revealed a critical flow issue. Impact if ignored: 20% support ticket increase. I have two options to share."',
+        writing: 'Write a design brief summary in BLUF format — lead with the recommendation, support with 3 reasons.',
+        reflection: ['When is leading with the answer uncomfortable for me?', 'How do stakeholders respond when I am direct?'],
+        outcome: 'BLUF becomes automatic in written and spoken communication' },
+      { theme: 'SCQA Framework', color: 'badge-purple', obj: 'Use SCQA to structure every design presentation', time: '75 min',
+        exercises: ['Pick any design project. Build a SCQA structure for it in 5 minutes.', 'Present the SCQA out loud to yourself or record it.', 'Practice: "Situation — Complication — Question — Answer" for 3 different scenarios.'],
+        script: '"Situation: We redesigned the payment flow last quarter. Complication: Mobile conversion dropped 12% post-launch. Question: How do we recover conversion while retaining the design improvements? Answer: I recommend three targeted changes — let me show you."',
+        writing: 'Write a SCQA summary for a design decision you made recently. Max 4 sentences total.',
+        reflection: ['Does SCQA make my thinking clearer before I speak?', 'Where does this framework feel awkward?'],
+        outcome: 'Confident use of SCQA in presentations and updates' },
+      { theme: 'Tradeoffs', color: 'badge-amber', obj: 'Articulate design tradeoffs like a senior designer', time: '60 min',
+        exercises: ['Practice the Option A / Option B / I Recommend format for 5 design decisions', 'Record yourself presenting a tradeoff in under 90 seconds', 'Frame every tradeoff with business impact, not just design quality'],
+        script: '"We have two options. Option A: ship faster with the existing components. This saves two weeks but increases technical debt. Option B: build custom components. This takes two weeks longer but gives us scalability for the next 12 months. I recommend Option B because our current roadmap shows three similar features coming. The upfront investment pays off."',
+        writing: 'Write a one-paragraph tradeoff analysis for a real or hypothetical design decision.',
+        reflection: ['Can I explain tradeoffs without being defensive about my preferred option?'],
+        outcome: 'Clear, confident tradeoff articulation in meetings' },
+      { theme: 'Handling Questions', color: 'badge-teal', obj: 'Stop freezing when asked unexpected questions', time: '75 min',
+        exercises: ['Practice the Acknowledge-Bridge-Respond technique for 10 questions', 'Prepare 5 "buying time" phrases: "That is a great point to dig into.", "Let me think about the best way to address that."', 'Practice: "I don\'t have that data right now, but I will get back to you by [time]."'],
+        script: '"That is an important question. I want to make sure I give you the right information rather than a rushed answer. Can I send you the specific numbers by end of day?" [OR] "From what I know right now, [partial answer]. I want to verify one piece of data and confirm with you."',
+        writing: 'Write responses to 5 difficult stakeholder questions you have faced or expect to face.',
+        reflection: ['What question type freezes me the most?', 'Does "buying time" feel dishonest, or professional?'],
+        outcome: 'Confident response to unexpected questions without freezing' },
+      { theme: 'Business Language', color: 'badge-coral', obj: 'Translate design language to business language', time: '60 min',
+        exercises: ['Take 10 design terms. Translate each to business impact.', 'Practice: "This design is cleaner" → "This reduces cognitive load, which decreases time-on-task by 30%"', 'Replace subjective adjectives with measurable outcomes'],
+        script: '"The redesigned onboarding flow reduces the number of steps from 7 to 4. Based on our benchmark data, this should increase completion rate from 42% to approximately 65%. That translates to roughly 800 more activated users per week at our current traffic."',
+        writing: 'Write a one-page design rationale document for any project. Frame every decision in terms of user outcome and business impact.',
+        reflection: ['Which design terms do I use that stakeholders don\'t understand?', 'How does my audience respond when I use data?'],
+        outcome: 'Fluent translation between design thinking and business outcomes' },
+      { theme: 'Storytelling', color: 'badge-blue', obj: 'Tell the story of your design, not just the design', time: '75 min',
+        exercises: ['Learn the Hero\'s Journey for UX: User (hero) → Problem (villain) → Your design (guide) → Outcome', 'Practice: Tell a 3-minute story about a real user problem you solved', 'Record it. Review for clarity, pace, and engagement.'],
+        script: '"Meet Priya. She is a working professional trying to track her expenses on the go. Every time she opens our app, she has to tap through six screens to add an entry. By the time she gets there, she has forgotten the amount. She closes the app. We lose her. Our new design puts the \'add entry\' button on the home screen. One tap. She stays."',
+        writing: 'Write a 200-word user story that makes a stakeholder feel the problem before they see your solution.',
+        reflection: ['Did the story make my design decision more obvious?', 'What details make a story memorable?'],
+        outcome: 'A compelling storytelling habit that makes stakeholders care about design decisions' },
+      { theme: 'Week 2 Review', color: 'badge-green', obj: 'Consolidate frameworks and measure progress', time: '60 min',
+        exercises: ['Present a full design update using SCQA + BLUF', 'Time yourself: Can you structure any answer in under 10 seconds?', 'Review your writing exercises from the week'],
+        script: 'Use any script from Days 8–13 and present it naturally, without reading.',
+        writing: 'Write a retrospective: What improved this week? What still feels difficult? What is one thing you will change next week?',
+        reflection: ['Which framework helped most?', 'When did I feel most confident this week?'],
+        outcome: 'Frameworks are becoming instinctive, not just remembered' }
+    ]
+  },
+  {
+    days: [
+      { theme: 'Executive Presence', color: 'badge-purple', obj: 'Understand and embody executive presence', time: '75 min',
+        exercises: ['Watch 10 minutes of a TED Talk. Note: pace, pauses, eye contact cues, confidence signals.', 'Practice speaking standing up, with deliberate hand gestures.', 'Record yourself presenting and note: posture, energy, eye contact with camera.'],
+        script: '"I want to share a concern about the current direction. The data shows we are solving the right problem, but the proposed solution creates a new problem for our power users. I recommend we pause and test before shipping. Here is what I suggest."',
+        writing: 'Write three versions of the same message: casual, professional, executive. Notice the differences.',
+        reflection: ['What does "executive presence" mean in my specific context?', 'What can I do differently tomorrow in one meeting?'],
+        outcome: 'Clear understanding of what presence means and first steps to embody it' },
+      { theme: 'Strategic Communication', color: 'badge-amber', obj: 'Speak strategically, not just technically', time: '75 min',
+        exercises: ['Practice connecting every design decision to a company goal', 'Before any meeting, ask: "What is the strategic goal of this conversation?"', 'Practice framing recommendations as business bets, not design preferences'],
+        script: '"This design change aligns with our Q3 goal of improving activation. By reducing the onboarding steps, we expect to increase activation by 15%, which directly impacts our MRR target. I recommend we prioritize this above the visual refresh."',
+        writing: 'Write a strategic recommendation for any design decision. Connect it to: user impact, business metric, and timeline.',
+        reflection: ['What is the difference between talking about design and communicating strategy?'],
+        outcome: 'Every design communication is anchored to a business goal' },
+      { theme: 'Leading Design Reviews', color: 'badge-teal', obj: 'Run design reviews with authority and structure', time: '60 min',
+        exercises: ['Write an agenda for a design review using the format: Context → Problem → Solutions → Recommendation → Decision needed', 'Practice opening a review: "Today I need one decision from you: [X]. I\'ll share the context, three options, and my recommendation."', 'Practice receiving feedback: "Thank you. Can you tell me more about the specific concern?" — not "Oh okay, I will change it."'],
+        script: '"Today I am presenting the redesign of the search experience. I need your input on which direction to pursue. I will take 15 minutes to walk through the user problem, my research findings, and three design directions. At the end, I need a decision so we can move into development next sprint. Ready?"',
+        writing: 'Write a complete design review agenda for a real project.',
+        reflection: ['How do I currently open design reviews? How can I open them more confidently?'],
+        outcome: 'Confident facilitation of design reviews with clear goals and outcomes' },
+      { theme: 'Influencing Without Authority', color: 'badge-coral', obj: 'Learn to influence decisions as a designer', time: '75 min',
+        exercises: ['Learn the principle: Data > Opinion. Always back your recommendations with data.', 'Practice: "The research shows...", "The data suggests...", "Users told us..."', 'Influence through questions: "What happens to retention if we skip this feature?" — make others think.'],
+        script: '"I want to raise a concern. The current proposal optimizes for engineering speed, which I understand. But based on our usability testing, users are confused by the new navigation pattern. Three of five users in testing failed to find the settings page. If we ship this, I expect a 25% increase in support tickets. Can we spend one day fixing the navigation before shipping?"',
+        writing: 'Write a short memo (200 words) that influences a stakeholder decision without direct authority.',
+        reflection: ['When am I most persuasive? What is different in those moments?'],
+        outcome: 'Concrete influence techniques that work without authority' },
+      { theme: 'Handling Conflict', color: 'badge-blue', obj: 'Disagree professionally and constructively', time: '60 min',
+        exercises: ['Practice: "I see this differently, and I want to share why..." — 10 times', 'Practice: "I hear your concern. Here is how I think we can address it while achieving [goal]..."', 'Learn: Disagree with the idea, never with the person. "The proposal has a gap" not "You are wrong."'],
+        script: '"I want to be transparent about my concern here. I think we are solving the wrong problem. The PM is focused on speed to market, and I absolutely respect that goal. My concern is that shipping a confusing flow will increase our support cost and hurt retention in Q4. Can I share an alternative that gets us to launch in the same timeline but with better quality?"',
+        writing: 'Write a professional pushback to a stakeholder who wants to cut a design feature you believe is important.',
+        reflection: ['What makes me avoid conflict in meetings?', 'What is the cost of not raising disagreements?'],
+        outcome: 'Confident, professional disagreement that maintains relationships' },
+      { theme: 'Leadership Updates', color: 'badge-purple', obj: 'Present to senior leadership with confidence', time: '75 min',
+        exercises: ['Practice: 90-second leadership update for a project — BLUF first, 3 bullets, one ask', 'Record the update. Review for pace, clarity, confidence.', 'Anticipate 5 questions a VP would ask and prepare crisp answers'],
+        script: '"Update on the checkout redesign: We are on track for Q3 launch. We resolved the mobile UX issue from last sprint and increased test completion rate from 42% to 67%. One risk: we need a decision on the payment provider integration by Friday or we miss the window. I need five minutes with the tech lead to unblock this."',
+        writing: 'Write a leadership-ready project status update using the 3W framework.',
+        reflection: ['What makes presenting to leadership feel different from other meetings?', 'What do leaders actually care about?'],
+        outcome: 'Concise, confident leadership communications' },
+      { theme: 'Week 3 Review', color: 'badge-green', obj: 'Synthesize executive communication skills', time: '60 min',
+        exercises: ['Record a 5-minute mock leadership presentation for a design project', 'Compare to your Day 1 recording', 'Identify your top 3 improvements and top 3 remaining challenges'],
+        script: 'No script — this is your own presentation. Use frameworks from the week.',
+        writing: 'Write a self-evaluation: How have I changed since Day 1?',
+        reflection: ['Where do I sound most like myself while also being professional?', 'Which executive habit is most natural to me now?'],
+        outcome: 'Clear view of progress and a plan to consolidate gains in Week 4' }
+    ]
+  },
+  {
+    days: [
+      { theme: 'Stakeholder Mapping', color: 'badge-amber', obj: 'Understand your stakeholders and tailor your communication', time: '60 min',
+        exercises: ['Map your top 5 stakeholders: What do they care about? What language do they use? What is their decision style?', 'Practice tailoring the same design update for: a PM, an engineer, a VP.', 'Learn: never give a VP the details you would give a PM.'],
+        script: 'For PM: "The design is complete. Key decision: flow A or flow B. Both work — A is faster to ship. I recommend A." For VP: "We are on track. The main design decision this week is resolved. Expected outcome: 15% improvement in activation."',
+        writing: 'Write the same design update in three versions: for your PM, for your engineering lead, for your VP.',
+        reflection: ['Who do I communicate least effectively with? Why?', 'What does each person actually want from me?'],
+        outcome: 'Tailored communication that resonates with each audience' },
+      { theme: 'Full Simulation', color: 'badge-blue', obj: 'Simulate a full leadership design review', time: '90 min',
+        exercises: ['Prepare a 10-minute design review for a real project', 'Present it aloud (record or present to a trusted person)', 'Include: problem → research → 3 options → recommendation → decision needed'],
+        script: 'See Design Review script in the Playbook section.',
+        writing: 'Write a one-page design brief that a stakeholder can read in 2 minutes and understand the decision needed.',
+        reflection: ['What felt most natural?', 'What would I do differently?'],
+        outcome: 'A full design review experience with structured feedback' },
+      { theme: 'Asking Questions', color: 'badge-purple', obj: 'Use questions as a leadership tool', time: '60 min',
+        exercises: ['Practice strategic questions: "What does success look like?", "What is the cost of inaction?", "What would need to be true for us to change direction?"', 'In every meeting this week, ask one strategic question before giving your opinion', 'Learn: Questions make you sound thoughtful and in control'],
+        script: '"Before I share my recommendation, I want to understand: what is the biggest risk you see with the current approach? [listen] Thank you — that helps me frame my response."',
+        writing: 'Write 10 strategic questions you can use in your next design review or product discussion.',
+        reflection: ['Did asking questions change the dynamic of any conversation?'],
+        outcome: 'Strategic questioning as a natural leadership habit' },
+      { theme: 'Written Influence', color: 'badge-teal', obj: 'Write messages that move people to action', time: '75 min',
+        exercises: ['Rewrite 3 past Slack messages using the BLUF + 3-point structure', 'Practice: every email ends with a clear next step and a deadline', 'Learn the "So What" test: read every message and ask "So what should the reader do?"'],
+        script: 'Slack message: "I completed the payment flow designs. Attached are 3 options. [link] My recommendation is Option 2 — it reduces steps from 6 to 3 and aligns with our mobile-first goal. I need your input by Wednesday so we can hand off to engineering Thursday."',
+        writing: 'Write a professional email that requests approval for a design decision. Use BLUF. Include: recommendation, supporting reason, deadline for response.',
+        reflection: ['What is the difference between informing and influencing in writing?'],
+        outcome: 'Written communications that create clear action' },
+      { theme: 'Recovery & Resilience', color: 'badge-coral', obj: 'Handle setbacks in meetings gracefully', time: '60 min',
+        exercises: ['Practice: "I don\'t have that answer right now, but I will follow up by [time]." — 5 times', 'Practice: recovering from a blank moment: "Let me rephrase that more clearly..."', 'Learn: one bad moment doesn\'t define a meeting. Continue.'],
+        script: '"I realize I misspoke earlier. What I meant to say is [corrected version]. Thank you for your patience." [OR] "I want to revisit the point I made earlier — I think I can frame it more clearly: [clearer version]."',
+        writing: 'Write a follow-up email after a meeting where things did not go perfectly. Own the gap, provide clarity, move forward.',
+        reflection: ['How do I currently react when I make a mistake in a meeting?', 'What would "recovery with grace" look like for me?'],
+        outcome: 'Resilience and self-correction as professional strengths' },
+      { theme: 'Peer Practice', color: 'badge-blue', obj: 'Apply everything in real conversations this week', time: '75 min',
+        exercises: ['Ask a colleague or friend to listen to a 5-minute design explanation and give feedback', 'Practice: the 30-second version and the 5-minute version of the same update', 'Commit to using one new communication technique in every meeting this week'],
+        script: '"I want to try something. I am going to explain this design decision in 30 seconds. Tell me if the core idea is clear. Ready? [30-second BLUF]."',
+        writing: 'Write a "communication charter" for yourself: the 5 communication habits you are committing to for the next 30 days.',
+        reflection: ['What did I learn from getting feedback from another person?'],
+        outcome: 'External validation of communication growth' },
+      { theme: 'Day 30: Showcase', color: 'badge-green', obj: 'Demonstrate your 30-day transformation', time: '90 min',
+        exercises: ['Record a 10-minute complete design presentation using all frameworks', 'Compare to Day 1 recording', 'Write your "30-day transformation summary"', 'Plan your Month 2 focus areas'],
+        script: 'This is your own. Use every framework you have learned. Present a real project.',
+        writing: 'Write a professional design document (1–2 pages) for a project you are proud of.',
+        reflection: ['What single change had the biggest impact?', 'Which framework do I now use without thinking?', 'What is the most important habit for Month 2?'],
+        outcome: 'Measurable evidence of transformation. A confident, structured designer who communicates with executive presence.' }
+    ]
+  }
+];
+
+function renderDays(weekIndex) {
+  const containerId = 'day-list-' + (weekIndex + 1);
+  const container = document.getElementById(containerId);
+  if (!container || container.innerHTML !== '') return;
+  const weekData = weeks[weekIndex];
+  const startDay = weekIndex * 7 + 1;
+  weekData.days.forEach((day, i) => {
+    const dayNum = startDay + i;
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.style.cursor = 'pointer';
+    div.innerHTML = `
+      <div onclick="toggleDay(this)" style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div class="tag-row"><span class="badge ${day.color}">Day ${dayNum}</span> <span class="badge badge-green">${day.time}</span></div>
+          <h3 style="margin-top:0.25rem;">${day.theme}</h3>
+          <p style="font-size:13px; color:var(--text2); margin-top:0.25rem;">${day.obj}</p>
+        </div>
+        <span style="font-size:20px; color:var(--text3);">›</span>
+      </div>
+      <div class="day-detail" style="margin-top:1rem;">
+        <div class="section-title">Exercises</div>
+        <ul>${day.exercises.map(e => `<li>${e}</li>`).join('')}</ul>
+        <div class="section-title" style="margin-top:1rem;">Practice Script</div>
+        <div class="script-box">${day.script}</div>
+        <div class="section-title">Writing Exercise</div>
+        <div class="tip-box">${day.writing}</div>
+        <div class="section-title">Reflection Questions</div>
+        <ul>${day.reflection.map(r => `<li>${r}</li>`).join('')}</ul>
+        <div class="section-title">Expected Outcome</div>
+        <div class="good-box">${day.outcome}</div>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+function toggleDay(header) {
+  const detail = header.parentElement.querySelector('.day-detail');
+  const arrow = header.querySelector('span:last-child');
+  detail.classList.toggle('active');
+  arrow.textContent = detail.classList.contains('active') ? '∨' : '›';
+}
+
+renderDays(0);
+document.querySelectorAll('.week-tab').forEach((tab, i) => {
+  tab.addEventListener('click', () => renderDays(i));
+});
+
+// ─── Playbook Data ─────────────────────────────────────────
+const playbookData = [
+  { name: 'Design Reviews', badge: 'badge-blue',
+    obj: 'Get a clear decision on your design direction from stakeholders.',
+    mistakes: ['Presenting everything without a recommendation', 'Explaining visual choices without connecting to user outcomes', 'Not asking for a specific decision', 'Being defensive about feedback'],
+    framework: 'Open with the decision needed → Share user problem context → Present 2-3 options → Give recommendation → Ask for decision',
+    script: `"Good [morning/afternoon]. Today I need one decision from you: which of three directions to pursue for [feature]. I'll give you context in 2 minutes, then walk through the options. It should take 15 minutes total.\n\n[2 min: User problem]\nThe problem we are solving: [X]. [Data point]. [User quote if available].\n\n[10 min: Options]\nOption A: [Description]. Pros: [X]. Cons: [Y].\nOption B: [Description]. Pros: [X]. Cons: [Y].\nOption C: [Description]. Pros: [X]. Cons: [Y].\n\n[3 min: Recommendation]\nI recommend Option B because [reason 1], [reason 2], and [reason 3].\n\nDecision needed: Which direction should I take forward into high-fidelity?"`,
+    exec: '"We tested three directions for the checkout redesign. The data points to Option B — it reduces drop-off by an estimated 18%. I need your sign-off to move to final specs this week."' },
+  { name: 'Sprint Planning', badge: 'badge-purple',
+    obj: 'Ensure design work is scoped correctly and dependencies are clear.',
+    mistakes: ['Not speaking up when scope is unrealistic', 'Not clarifying design requirements before estimation', 'Accepting vague requirements without asking questions'],
+    framework: 'Clarify the goal → Identify design tasks → Flag dependencies → Confirm timeline → Get agreement',
+    script: `"Before we finalize the sprint, I want to confirm the design scope. For [feature], we need: [list 3 design tasks]. My estimate is [X] days. One dependency: I need [asset/decision] from [person] by [date] or I cannot deliver by the sprint end.\n\nDoes this scope work for the sprint goal?"`,
+    exec: '"The design scope is confirmed: three screens, component updates, and the edge case documentation. I am blocked on the API response format — I need that from engineering by Tuesday to complete the error states. Can we confirm that dependency now?"' },
+  { name: 'Stakeholder Reviews', badge: 'badge-amber',
+    obj: 'Build alignment and get buy-in from stakeholders who have not been in daily design work.',
+    mistakes: ['Showing final designs without building context first', 'Not anticipating stakeholder concerns', 'Presenting too much detail to the wrong audience'],
+    framework: 'Set context (1 min) → Problem statement (1 min) → Solution direction (3 min) → Key decisions made (2 min) → Feedback needed (1 min)',
+    script: `"I want to take 8 minutes to share where we are on [project] and get your input on one key decision.\n\nContext: We are redesigning [X] to address [user problem].\nWhat we know: [data or research finding].\nThe direction we have chosen: [brief description].\nKey tradeoffs: [tradeoff].\n\nThe one thing I want your input on: [specific question].\n\nI will show you two screens to illustrate this — these are not final — I am looking for directional feedback, not polish feedback."`,
+    exec: '"We have alignment on direction. The one open question is the data visualization — do we show real-time data or summary data? That is a product decision. I have mocked both options. Which serves the VP dashboard use case better?"' },
+  { name: 'Product Discussions', badge: 'badge-teal',
+    obj: 'Influence product decisions with design insight and user data.',
+    mistakes: ['Being a passive listener when you have a valid perspective', 'Only commenting on design — not on the overall product experience', 'Not raising design implications of product decisions'],
+    framework: 'Listen first → Add design perspective → Connect to user impact → Ask a strategic question',
+    script: `"I want to add a design perspective here. [Product decision being discussed] will affect users in a specific way: [impact]. Based on our user research, [finding]. This suggests we should also consider [design recommendation].\n\nA question I would raise: [strategic question that connects design to the product goal]."`,
+    exec: '"The feature is valuable, but the proposed placement breaks the navigation mental model. I recommend we solve the discovery problem differently — here is an approach that achieves the same business goal without creating a confusing UX debt."' },
+  { name: 'User Research Presentations', badge: 'badge-coral',
+    obj: 'Make research insights actionable and create urgency to act on findings.',
+    mistakes: ['Presenting findings without recommendations', 'Sharing too many insights — stakeholders lose focus', 'Not connecting research to business metrics'],
+    framework: 'Hook with one insight → Methodology (30 sec) → Top 3 findings → Business implications → Recommendations → What we should do next',
+    script: `"I want to start with one finding that surprised us: [most impactful insight]. [Pause. Let it land.]\n\nWe spoke with 8 users over 2 weeks. Here are the three most important things we learned:\n\nFinding 1: [Finding]. Impact: [business or product implication].\nFinding 2: [Finding]. Impact: [implication].\nFinding 3: [Finding]. Impact: [implication].\n\nBased on this, I recommend three actions: [Action 1]. [Action 2]. [Action 3].\n\nThe most urgent is [Action 1] — if we do not address it, [consequence]."`,
+    exec: '"The headline from this research: users are not failing because of the design. They are failing because they do not understand the value proposition before signup. That is a positioning problem, not a design problem. This changes our recommendation."' },
+  { name: 'Conflict Situations', badge: 'badge-blue',
+    obj: 'Maintain your position professionally while keeping the relationship intact.',
+    mistakes: ['Capitulating immediately when challenged', 'Getting emotional or defensive', 'Agreeing and then re-opening the conversation later'],
+    framework: 'Acknowledge the concern → Separate the idea from the person → State your position clearly → Offer a resolution path',
+    script: `"I hear the concern, and I want to address it directly. The question is whether [design decision] is the right call. I understand the preference for [alternative]. My concern is [specific risk]. The data from [source] supports [your position]. I would like to suggest we [test / get more data / present both options to users] before making a final call. Would that work?"`,
+    exec: '"I want to be transparent: I think changing the navigation at this stage will cost us more than it saves. I am not saying the concern is wrong — I am saying the risk is higher than it appears. Can we agree on a 5-day test with users before we commit?"' }
+];
+
+function renderPlaybook() {
+  const tabsDiv = document.getElementById('playbook-tabs');
+  const contentDiv = document.getElementById('playbook-content');
+  playbookData.forEach((item, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'week-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = item.name;
+    btn.onclick = () => {
+      document.querySelectorAll('#playbook-tabs .week-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showPlaybookItem(i);
+    };
+    tabsDiv.appendChild(btn);
+  });
+  showPlaybookItem(0);
+}
+
+function showPlaybookItem(i) {
+  const d = playbookData[i];
+  document.getElementById('playbook-content').innerHTML = `
+    <div class="card">
+      <div class="tag-row"><span class="badge ${d.badge}">${d.name}</span></div>
+      <h3 style="margin-bottom:0.25rem;">Objective</h3>
+      <p style="font-size:14px; color:var(--text2); margin-bottom:1rem;">${d.obj}</p>
+      <div class="section-title">Common mistakes</div>
+      <ul>${d.mistakes.map(m => `<li>${m}</li>`).join('')}</ul>
+      <div class="section-title" style="margin-top:1rem;">Framework</div>
+      <div class="tip-box">${d.framework}</div>
+      <div class="section-title" style="margin-top:1rem;">Executive-level example</div>
+      <div class="good-box">${d.exec}</div>
+      <div class="section-title" style="margin-top:1rem;">Full practice script</div>
+      <div class="script-box" style="white-space:pre-line;">${d.script}</div>
+    </div>`;
+}
+
+renderPlaybook();
+
+// ─── Phrases Data ──────────────────────────────────────────
+const phraseCats = [
+  { name: 'Executive', color: 'badge-blue', phrases: [
+    { p: 'The core issue here is...', c: 'Starting an analysis' },
+    { p: 'Let me be direct about this.', c: 'Signaling honesty' },
+    { p: 'Based on the data, I recommend...', c: 'Making recommendations' },
+    { p: 'My recommendation is to move forward with [X].', c: 'Clear decision language' },
+    { p: 'The tradeoff we need to consider is...', c: 'Presenting options' },
+    { p: 'This aligns with our Q3 goal of [X].', c: 'Strategic framing' },
+    { p: 'The risk of inaction here is...', c: 'Creating urgency' },
+    { p: 'I want to flag a concern before we proceed.', c: 'Raising risks' },
+    { p: 'What does success look like for this?', c: 'Strategic questioning' },
+    { p: 'To summarize, the decision we need is...', c: 'Closing updates' },
+    { p: 'I will take ownership of [X] and report back by [date].', c: 'Accountability' },
+    { p: 'Let me frame this differently.', c: 'Reframing' },
+    { p: 'From a strategic perspective...', c: 'Signaling big-picture thinking' },
+    { p: 'The business case for this is...', c: 'Justifying decisions' },
+    { p: 'I have three points to make.', c: 'Structuring your response' },
+  ]},
+  { name: 'Stakeholder', color: 'badge-purple', phrases: [
+    { p: 'I want to make sure I understand your concern correctly.', c: 'Active listening' },
+    { p: 'What would need to be true for you to support this direction?', c: 'Understanding blockers' },
+    { p: 'I hear you. Here is how I am thinking about it.', c: 'Acknowledging before responding' },
+    { p: 'Can we agree to revisit this after we have more data?', c: 'Deferring decisions' },
+    { p: 'I appreciate the feedback. Let me address each point.', c: 'Handling feedback' },
+    { p: 'My goal is to get your input before we finalize.', c: 'Showing collaboration' },
+    { p: 'I want to be transparent about the tradeoffs.', c: 'Building trust' },
+    { p: 'This is a decision that will affect [team/user]. I wanted to flag it.', c: 'Proactive communication' },
+    { p: 'What is your biggest concern with this approach?', c: 'Surfacing objections early' },
+    { p: 'I would like five minutes to walk you through my thinking.', c: 'Requesting time' },
+    { p: 'The reason I am raising this now is [reason].', c: 'Explaining urgency' },
+    { p: 'Your input on [X] would be really valuable before we commit.', c: 'Requesting specific input' },
+  ]},
+  { name: 'Design Language', color: 'badge-teal', phrases: [
+    { p: 'The user problem we are solving is...', c: 'Starting with user context' },
+    { p: 'Based on our usability testing...', c: 'Citing research' },
+    { p: 'This design decision reduces friction at [step].', c: 'Outcome-based framing' },
+    { p: 'The expected impact on [metric] is...', c: 'Business framing' },
+    { p: 'I designed this to address [specific user behavior].', c: 'Explaining intent' },
+    { p: 'The tradeoff here is [speed vs quality / simplicity vs features].', c: 'Articulating tradeoffs' },
+    { p: 'We explored three directions before arriving at this.', c: 'Showing process' },
+    { p: 'User feedback from testing session [X] showed...', c: 'Evidence-based recommendation' },
+    { p: 'This pattern is consistent with [industry standard / our design system].', c: 'Justifying patterns' },
+    { p: 'I recommend we test this assumption before shipping.', c: 'Advocating for validation' },
+    { p: 'The edge case we need to design for is...', c: 'Raising completeness' },
+    { p: 'This reduces the number of steps from [X] to [Y].', c: 'Quantifying improvements' },
+  ]},
+  { name: 'Disagreement', color: 'badge-coral', phrases: [
+    { p: 'I see this differently, and I want to share why.', c: 'Professional disagreement' },
+    { p: 'I want to respectfully push back on that.', c: 'Constructive pushback' },
+    { p: 'I understand the appeal of that approach. My concern is...', c: 'Acknowledging before disagreeing' },
+    { p: 'The data suggests a different conclusion.', c: 'Evidence-based disagreement' },
+    { p: 'Can we test that assumption before committing?', c: 'Questioning without dismissing' },
+    { p: 'I think we might be solving the wrong problem.', c: 'Reframing the issue' },
+    { p: 'I agree with the goal, but not the approach.', c: 'Separating goal from method' },
+    { p: 'I want to flag a risk with this direction.', c: 'Raising concerns constructively' },
+    { p: 'My experience with similar situations suggests...', c: 'Using expertise' },
+    { p: 'Before we decide, can I share an alternative?', c: 'Offering options' },
+    { p: 'I am concerned that [X] will lead to [Y]. Here is my evidence.', c: 'Structured disagreement' },
+    { p: 'I want to be honest — I do not think this will work because...', c: 'Direct honesty' },
+  ]},
+  { name: 'Recommendations', color: 'badge-green', phrases: [
+    { p: 'I recommend [X] based on [evidence].', c: 'Direct recommendation' },
+    { p: 'My recommendation is to prioritize [X] in this sprint.', c: 'Sprint-level recommendation' },
+    { p: 'Given the constraints, the best path forward is...', c: 'Constrained recommendation' },
+    { p: 'I suggest we approach this in two phases.', c: 'Phased recommendation' },
+    { p: 'The option I would move forward with is [X] because...', c: 'Choosing among options' },
+    { p: 'To achieve [goal], I recommend [action].', c: 'Goal-linked recommendation' },
+    { p: 'If I had to choose one thing to focus on, it would be...', c: 'Prioritization language' },
+    { p: 'My strong recommendation is to [X] before [Y].', c: 'Sequenced recommendation' },
+    { p: 'We should defer [X] and focus on [Y] for now.', c: 'Scope management' },
+    { p: 'I recommend we validate this with users before committing.', c: 'Research recommendation' },
+  ]},
+  { name: 'Better Questions', color: 'badge-amber', phrases: [
+    { p: 'What does success look like for this?', c: 'Defining outcomes' },
+    { p: 'What is the cost of not doing this?', c: 'Urgency questioning' },
+    { p: 'Who is the primary user for this feature?', c: 'Clarifying audience' },
+    { p: 'What would need to change for this to work?', c: 'Unblocking thinking' },
+    { p: 'How will we know if this is working?', c: 'Defining metrics' },
+    { p: 'What are we optimizing for — speed or quality?', c: 'Surfacing trade-offs' },
+    { p: 'What is the one assumption we are most uncertain about?', c: 'Risk identification' },
+    { p: 'Is this the right problem to solve right now?', c: 'Strategic prioritization' },
+    { p: 'What would a user who is not technical think of this?', c: 'User empathy' },
+    { p: 'What happens if we get this wrong?', c: 'Risk thinking' },
+    { p: 'Can you help me understand the constraint better?', c: 'Clarifying blockers' },
+    { p: 'What is the simplest version of this that delivers value?', c: 'MVP thinking' },
+  ]}
+];
+
+function renderPhrases() {
+  const btnDiv = document.getElementById('phrase-cat-buttons');
+  const contentDiv = document.getElementById('phrase-content');
+  phraseCats.forEach((cat, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'phrase-cat-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = cat.name;
+    btn.onclick = () => {
+      document.querySelectorAll('.phrase-cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.phrase-container').forEach(c => c.classList.remove('active'));
+      document.getElementById('phrase-cat-' + i).classList.add('active');
+    };
+    btnDiv.appendChild(btn);
+    const div = document.createElement('div');
+    div.className = 'phrase-container' + (i === 0 ? ' active' : '');
+    div.id = 'phrase-cat-' + i;
+    div.innerHTML = `<div class="phrase-grid">${cat.phrases.map(p => `<div class="phrase-item">"${p.p}"<span>${p.c}</span></div>`).join('')}</div>`;
+    contentDiv.appendChild(div);
+  });
+}
+
+renderPhrases();
+
+// ─── Scenarios ─────────────────────────────────────────────
+const scenarios = [
+  { title: 'A VP challenges your design decision in front of the team',
+    situation: 'You present a simplified navigation design. The VP says, "This looks too simple. Our users are sophisticated — they want more options."',
+    weak: '"Oh okay, I can add more options if you want. I can change it."',
+    strong: '"That is a valid concern, and I want to address it directly. The data from our user testing showed that 4 of 6 users struggled to find the core function in the current navigation. Simplification was a deliberate choice to solve that. I agree our users are sophisticated — and I believe sophisticated users prefer efficiency over options. I am happy to show you the test recordings. If we still disagree after that, I suggest we run an A/B test before committing to either direction."' },
+  { title: 'You are asked for an update in a leadership meeting you were not prepared for',
+    situation: 'A senior director suddenly says, "Can you give us a quick update on the checkout redesign?"',
+    weak: '"Um, so... we are working on it. There are a few things... like we have some screens done. It is going okay I think."',
+    strong: '"Yes. We are on track for the sprint 14 deadline. Designs for the core flow are complete and with engineering. The one open item is the error states — I need a decision on the copy from the content team by Friday. Overall: green status. Happy to share a link to the Figma file if anyone wants to dig in."' },
+  { title: 'A PM overrides your design decision without explanation',
+    situation: 'The PM says, "We are going with the old flow. The new one is too risky for now."',
+    weak: 'You say nothing and close your laptop.',
+    strong: '"I respect that decision. Can I ask — what is the specific risk you are concerned about? I want to make sure I understand so I can address it in the next version. If it is the [specific element], I may have a solution that keeps the progress we made while reducing the risk."' },
+  { title: 'You are presenting user research and a stakeholder dismisses it',
+    situation: 'You share that 6 of 8 users could not complete the task. A stakeholder says, "8 users is not a statistically significant sample."',
+    weak: '"Yeah, I know, we could not get more users in time..."',
+    strong: '"You are right that 8 users does not give us statistical significance for quantitative analysis. For qualitative usability testing, 5–8 users is the standard threshold for identifying major usability patterns. All 6 users who failed made the same mistake at the same point. That consistent failure pattern is actionable regardless of sample size. I would be happy to share the NNGroup research on this if it would be helpful."' },
+  { title: 'Engineering pushes back on your design for being too complex',
+    situation: 'The engineering lead says, "This design will take 3 sprints. We do not have time for this."',
+    weak: '"Oh... okay, I will make it simpler."',
+    strong: '"I hear the constraint. Let me suggest a phased approach. In Sprint 1, we ship the core interaction — the minimum that solves the user problem. In Sprint 2, we add the visual enhancements and micro-interactions. Sprint 3 can be stretch goals. This gets the value to users faster while keeping the design quality intact. Does that work?"' },
+  { title: 'You are asked a question you do not know the answer to',
+    situation: 'A VP asks, "What is the conversion rate impact from our last design change?"',
+    weak: '"Um... I am not sure... I think it was... maybe 5%? Or something like that."',
+    strong: '"I do not have that number with me right now. I want to give you the accurate figure rather than estimate. I will pull the analytics data and send it to you by end of day today. What I can tell you from memory is that the qualitative signals from users were positive — the task completion time went down noticeably in our testing."' },
+  { title: 'A stakeholder wants to skip user research to ship faster',
+    situation: '"We know enough about our users. Let us just ship and iterate. We are behind schedule."',
+    weak: '"Okay, you are probably right."',
+    strong: '"I understand the timeline pressure, and I want to help us ship. My concern is that we have two conflicting assumptions about user behavior on this feature. Shipping without validating means we might need to iterate twice instead of once. I am proposing a 3-day moderated test with 5 users — that is the minimum to de-risk the main assumption. If the test validates our assumption, we ship with confidence. If it does not, we avoid a costly rollback. Can I show you the test plan so you can decide if the 3 days are worth it?"' },
+  { title: 'You need to present a failed design experiment',
+    situation: 'The A/B test results show your redesign performed worse than the control.',
+    weak: '"So... the test did not go well. The design did not perform. I am not sure what happened."',
+    strong: '"The A/B test results are in, and I want to be transparent: our variant performed 8% below the control on the primary metric. I have analyzed the session recordings and identified the likely cause — users were confused by the new placement of the primary CTA in the first 10 seconds. This is valuable data. I have two recommendations: either we iterate with a targeted fix to the CTA placement, or we go back to the control and rethink the approach. I recommend the first option — here is why."' },
+  { title: 'You need to influence a decision where you have no authority',
+    situation: 'The product roadmap does not include a feature you believe is critical for users.',
+    weak: 'You complain in the design channel. You say nothing in the planning meeting.',
+    strong: '"I want to raise a design perspective on the roadmap. The feature we are deprioritizing — [X] — came up in 6 of 8 user interviews as a significant pain point. I have the quotes and the session clips if it would help. I am not asking to change the roadmap today. I am asking: can we include this in the backlog with the research evidence attached, so when we revisit priorities, we have the context to make an informed decision?"' },
+  { title: 'Your design is being misunderstood in a handoff meeting',
+    situation: 'Engineering is building the component incorrectly based on a misunderstanding of the design intent.',
+    weak: '"Oh no that is wrong. That is not what I meant at all."',
+    strong: '"I want to make sure we are aligned on the intent here, because I think there might be a miscommunication. The design spec shows [X], but I see the build is implementing [Y]. The difference matters because [user impact]. Can we spend 10 minutes now to align? I want to make sure we do not have to redo work later."' },
+  { title: 'You need to say no to a feature request from a stakeholder',
+    situation: 'A stakeholder asks you to add a feature that conflicts with your design principles and user research.',
+    weak: '"Yeah I will see what I can do."',
+    strong: '"I appreciate the suggestion. I want to share my concern before we commit. Based on our research, users are already overwhelmed with options on this screen. Adding [feature] is likely to increase cognitive load and reduce task completion. I want to solve the underlying need — what is the business problem you are trying to address with this feature? If I understand the goal, I might have an alternative that achieves it without the UX tradeoff."' },
+  { title: 'You are new in a senior meeting and want to contribute',
+    situation: 'You are in a leadership meeting for the first time. A discussion about product direction is happening.',
+    weak: 'You sit silently. You have an idea but you say nothing.',
+    strong: '"I want to add something from a design perspective. The user research from last month showed a clear preference for [X direction]. If the team is considering [option discussed], I think it is worth factoring in that finding. I can send a summary of the research after this call if it would be useful."' },
+  { title: 'You are asked to cut scope from a design you believe is critical',
+    situation: '"We need to cut scope. What can you remove from the design?"',
+    weak: '"Okay, I can remove the onboarding flow."',
+    strong: '"I want to help us hit the timeline. Before cutting, let me show you what each element is solving — some can go, some are critical to the user goal. [Walk through design] The onboarding flow is the one piece I would protect — removing it will likely increase day-7 churn based on our benchmark data. I can cut [X, Y, Z] without impacting the core user goal. Does that work for the timeline?"' },
+  { title: 'A designer on your team presents weak work in a review',
+    situation: 'You are the senior designer reviewing a junior\'s work that has significant problems.',
+    weak: '"This is okay but it has a lot of problems." [lists problems without direction]',
+    strong: '"Thank you for sharing this. I can see you have thought through the core user flow. I want to give you specific feedback to strengthen it. Three things: First, the hierarchy on the primary screen is not directing the user to the main action — let me show you what I mean. Second, [point]. Third, [point]. These are solvable. I suggest we work through the hierarchy together now — it will make the rest of the screens clearer too. Does that help?"' },
+  { title: 'You need to present a design with no user research backing it',
+    situation: 'You have to present a design that was built based on stakeholder preference, not research.',
+    weak: 'You present it as if it is validated when it is not.',
+    strong: '"I want to be transparent about the context here. This design is based on our best judgment and stakeholder input — we did not have time to run user research before this review. That means there are assumptions built in. The three assumptions I am least confident about are [X, Y, Z]. I recommend we plan a lightweight validation test before shipping. I can set that up in two weeks."' },
+  { title: 'You need to escalate a risk to leadership',
+    situation: 'You have identified a significant UX problem that could delay the launch.',
+    weak: '"I think there might be an issue... maybe... I am not sure if it is a big deal..."',
+    strong: '"I need to escalate a risk. The current design has a critical gap in the error recovery flow — users who encounter a payment error have no clear path to retry. This is not a visual issue — it is a flow gap. In similar products, this type of gap causes 30–40% abandonment at checkout. I am flagging this now because fixing it requires 3 engineering days and the sprint ends Friday. I need a decision today: do we fix it now, or do we add a product risk and ship?"' },
+  { title: 'You need to present to an audience who is distracted by their phones',
+    situation: 'Half the meeting attendees are on their phones. You are presenting your design update.',
+    weak: 'You continue presenting quietly, feeling ignored.',
+    strong: '"Before I go further — I want to make sure this is a good use of your time. I have two things to share: a decision I need, and a quick status update. The decision is time-sensitive because [reason]. Can I take 3 minutes to get the decision first, and if anyone needs to drop after that, the status update will be in a written summary?"' },
+  { title: 'You are asked to justify the cost of design research',
+    situation: 'A skeptical stakeholder says, "We are already behind. Why are we spending time on user research?"',
+    weak: '"Because it is important to understand users."',
+    strong: '"Fair question. Last quarter, we shipped the notification feature without testing. We received 200 support tickets in the first week and reverted the feature after three weeks. The research I am proposing takes 4 days and reduces the probability of that outcome significantly. The cost of fixing a shipped UX problem is typically 5–10x the cost of researching it before shipping. I am not suggesting research for its own sake — I am suggesting it to protect the launch."' },
+  { title: 'You need to get alignment across two teams with different priorities',
+    situation: 'Marketing wants one design direction. Product wants another. You are caught in the middle.',
+    weak: 'You create a design that tries to satisfy both and satisfies neither.',
+    strong: '"I want to name what is happening: Marketing and Product have different goals for this screen, and the current design is trying to satisfy both — which means it will fully satisfy neither. I think we need 30 minutes with both teams to align on the primary goal for this screen before I finalize. Can I set up that meeting? I will come with two clear options and the tradeoffs, so we make a decision rather than talking in circles."' },
+  { title: 'You are asked to present the design system to new stakeholders',
+    situation: 'A new director joins and asks, "Can you explain what the design system is and why it matters?"',
+    weak: '"It is basically like... a collection of components we use... and it helps with consistency."',
+    strong: '"The design system is our product design infrastructure. It is a library of reusable components and guidelines that every designer and engineer uses to build product screens. Without it, every team makes independent decisions about buttons, forms, and navigation — and we get an inconsistent experience that confuses users and increases development time. With it, we ship new features 40% faster and the experience feels like one product. The investment pays back on the first new feature."' }
+];
+
+function renderScenarios() {
+  const list = document.getElementById('scenario-list');
+  scenarios.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'scenario-card';
+    div.innerHTML = `
+      <div class="scenario-header" onclick="toggleScenario(this)">
+        <div>
+          <span class="badge badge-blue" style="margin-bottom:4px;">${i+1} of ${scenarios.length}</span>
+          <h3 style="margin-top:4px; font-size:15px;">${s.title}</h3>
+        </div>
+        <span style="font-size:18px; color:var(--text3);">+</span>
+      </div>
+      <div class="scenario-body">
+        <div class="section-title">Situation</div>
+        <p style="font-size:14px; color:var(--text2);">${s.situation}</p>
+        <div class="section-title" style="margin-top:1rem;">Weak response</div>
+        <div class="bad-box">❌ "${s.weak}"</div>
+        <div class="section-title" style="margin-top:0.5rem;">Strong executive response</div>
+        <div class="good-box">✓ "${s.strong}"</div>
+      </div>`;
+    list.appendChild(div);
+  });
+}
+
+function toggleScenario(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('span:last-child');
+  body.classList.toggle('open');
+  arrow.textContent = body.classList.contains('open') ? '−' : '+';
+}
+
+renderScenarios();
+
+// ─── Resources ─────────────────────────────────────────────
+const resources = [
+  { cat: 'Executive Communication', color: 'badge-blue', items: [
+    { rank: 1, type: 'Book', name: 'The Pyramid Principle — Barbara Minto', why: 'The single most important book for structured thinking and communication. Used at McKinsey. Directly applicable.' },
+    { rank: 2, type: 'Book', name: 'Crucial Conversations — Patterson et al.', why: 'For handling high-stakes, emotional, or conflict situations professionally.' },
+    { rank: 3, type: 'Course', name: 'Executive Communication — LinkedIn Learning', why: 'Practical, video-based, 4-6 hours. Covers presence, clarity, and executive vocabulary.' },
+    { rank: 4, type: 'YouTube', name: 'Think Fast, Talk Smart — Stanford GSB', why: 'Spontaneous speaking skills. Free. Excellent for reducing freezing in unexpected situations.' },
+  ]},
+  { cat: 'Public Speaking', color: 'badge-purple', items: [
+    { rank: 1, type: 'Book', name: 'Talk Like TED — Carmine Gallo', why: 'Breaks down what makes presentations compelling. High impact for visual thinkers.' },
+    { rank: 2, type: 'YouTube', name: 'Toastmasters YouTube Channel', why: 'Real speaker examples from people at all skill levels. Humanizing and practical.' },
+    { rank: 3, type: 'Practice', name: 'Toastmasters Local Club', why: 'The most impactful speaking practice available. Find a club in your city.' },
+  ]},
+  { cat: 'Product Design Communication', color: 'badge-teal', items: [
+    { rank: 1, type: 'Book', name: 'Articulating Design Decisions — Tom Greever', why: 'The only book written specifically for designers on how to communicate decisions to stakeholders. Essential.' },
+    { rank: 2, type: 'Newsletter', name: 'The Looking Glass — Julie Zhuo', why: 'Substack newsletter by ex-VP Design at Facebook. Covers influence, communication, and design leadership.' },
+    { rank: 3, type: 'Book', name: 'Storytelling with Data — Cole Nussbaumer Knaflic', why: 'For making your research and data compelling in presentations.' },
+  ]},
+  { cat: 'Business Writing', color: 'badge-amber', items: [
+    { rank: 1, type: 'Tool', name: 'Hemingway Editor (hemingwayapp.com)', why: 'Paste any text. It shows you sentences that are too long or passive. Free.' },
+    { rank: 2, type: 'Book', name: 'On Writing Well — William Zinsser', why: 'Clarity in professional writing. The standard text. Short, impactful.' },
+    { rank: 3, type: 'Practice', name: 'Write one Slack message or email per day and review it before sending', why: 'Is the first sentence the most important one? Is there a clear ask? Can it be 20% shorter?' },
+  ]},
+  { cat: 'Storytelling', color: 'badge-coral', items: [
+    { rank: 1, type: 'Book', name: 'Building a StoryBrand — Donald Miller', why: 'Teaches you to position the user as the hero. Directly applicable to UX storytelling.' },
+    { rank: 2, type: 'YouTube', name: 'Nancy Duarte — Resonate', why: 'One of the best talks on presentation structure. Free on YouTube.' },
+    { rank: 3, type: 'Podcast', name: 'The Moth Podcast', why: 'Stories told live by real people. Study the structure, pace, and detail selection.' },
+  ]},
+];
+
+function renderResources() {
+  const div = document.getElementById('resource-content');
+  resources.forEach(cat => {
+    const section = document.createElement('div');
+    section.className = 'card';
+    section.style.marginBottom = '1rem';
+    section.innerHTML = `<div class="tag-row"><span class="badge ${cat.color}">${cat.cat}</span></div>`;
+    cat.items.forEach(item => {
+      const r = document.createElement('div');
+      r.className = 'resource-card';
+      r.innerHTML = `<div class="resource-rank">#${item.rank}</div><div><div style="display:flex; gap:8px; align-items:center; margin-bottom:4px;"><span class="badge badge-blue" style="font-size:11px;">${item.type}</span><strong style="font-size:14px;">${item.name}</strong></div><p style="font-size:13px; color:var(--text2);">${item.why}</p></div>`;
+      section.appendChild(r);
+    });
+    div.appendChild(section);
+  });
+}
+
+renderResources();
+</script>
+</body>
+</html>
