@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Executive Communication Plan — Product Designer</title>
+<title>Design Comm - by CodeOS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
@@ -38,13 +38,48 @@
     --radius-lg: 14px;
     --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   }
+  html[data-theme="dark"] {
+    --bg: #14130f;
+    --surface: #1c1b17;
+    --surface2: #25241f;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f3f1ec;
+    --text2: #b3b0a8;
+    --text3: #7d7a72;
+    --accent: #3b82f6;
+    --accent-bg: rgba(59,130,246,0.14);
+    --accent-text: #60a5fa;
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+    --green-text: #4ade80;
+    --amber: #f59e0b;
+    --amber-bg: rgba(245,158,11,0.12);
+    --amber-text: #fbbf24;
+    --purple: #a78bfa;
+    --purple-bg: rgba(167,139,250,0.14);
+    --purple-text: #c4b5fd;
+    --coral: #f87171;
+    --coral-bg: rgba(248,113,113,0.12);
+    --coral-text: #fca5a5;
+    --teal: #2dd4bf;
+    --teal-bg: rgba(45,212,191,0.12);
+    --teal-text: #5eead4;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { color-scheme: light; }
+  html[data-theme="dark"] { color-scheme: dark; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
     font-size: 15px;
     line-height: 1.6;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .card, .header, .day-cell, .week-tab, .nav-btn, .phrase-item, .resource-card, .scenario-card, .scenario-header, .phrase-cat-btn, .milestone, .script-box, .bad-box, .good-box, .tip-box, .progress-bar {
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   }
   .header {
     background: var(--surface);
@@ -327,15 +362,219 @@
     .day-grid { grid-template-columns: repeat(5, 1fr); }
     .header { padding: 1rem; }
   }
+
+  /* ─── Branding ─────────────────────────────────────── */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+  .brand-text h1 { font-size: 16px; font-weight: 600; line-height: 1.2; }
+  .brand-text p { font-size: 11px; color: var(--text3); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ─── Theme toggle ──────────────────────────────────── */
+  .theme-toggle {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* ─── Hero: Learning of the Day ─────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--accent-bg) 0%, var(--purple-bg) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero-head h2 { font-size: 18px; margin: 0; }
+  .hero-head .hero-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+  .hero-card .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+  }
+  .hero-card .hero-word {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .hero-card .hero-pos { font-size: 12px; color: var(--accent-text); font-style: italic; margin-bottom: 0.5rem; }
+  .hero-card .hero-def { font-size: 14px; color: var(--text2); margin-bottom: 0.5rem; }
+  .hero-card .hero-example {
+    font-size: 13px;
+    color: var(--text2);
+    font-style: italic;
+    border-left: 2px solid var(--border2);
+    padding-left: 0.6rem;
+  }
+
+  /* ─── Podcast section ───────────────────────────────── */
+  .podcast-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .podcast-thumb {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 40px;
+    flex-shrink: 0;
+  }
+  .podcast-info { flex: 1; min-width: 220px; }
+  .podcast-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+  .podcast-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .podcast-link:hover { border-color: var(--accent); color: var(--accent-text); }
+  .podcast-episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .podcast-episode {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .podcast-episode .ep-tag { font-size: 11px; color: var(--accent-text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .podcast-episode h4 { margin: 4px 0 4px; font-size: 14px; }
+  .podcast-episode p { font-size: 12px; color: var(--text2); margin: 0; }
+
+  /* ─── Scroll to top ─────────────────────────────────── */
+  .scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+    z-index: 200;
+  }
+  .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .scroll-top:hover { background: var(--accent-text); }
+
+  /* ─── Footer ─────────────────────────────────────────── */
+  .site-footer {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding: 1.75rem 2rem 2.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .site-footer p { font-size: 13px; color: var(--text2); margin-bottom: 0.5rem; }
+  .footer-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .footer-social:hover { border-color: var(--accent); color: var(--accent-text); }
+  @media (max-width: 600px) {
+    .site-footer { padding: 1.5rem 1rem 2rem; }
+    .scroll-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="header-inner">
-    <div>
-      <h1>Executive Communication Plan</h1>
-      <p>30-day transformation for Product Designers · 60–90 min/day</p>
+    <div class="brand">
+      <div class="brand-mark">CC</div>
+      <div class="brand-text">
+        <h1>CodeOS Comm</h1>
+        <p>Executive Communication Plan</p>
+      </div>
     </div>
     <nav class="nav" role="navigation" aria-label="Sections">
       <button class="nav-btn active" onclick="showSection('assessment')">Assessment</button>
@@ -345,12 +584,42 @@
       <button class="nav-btn" onclick="showSection('phrases')">Phrases</button>
       <button class="nav-btn" onclick="showSection('scenarios')">Scenarios</button>
       <button class="nav-btn" onclick="showSection('roadmap')">Roadmap</button>
+      <button class="nav-btn" onclick="showSection('podcast')">Podcast</button>
       <button class="nav-btn" onclick="showSection('resources')">Resources</button>
     </nav>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle light / dark mode">🌙</button>
   </div>
 </div>
 
 <main class="main" role="main">
+
+<!-- ═══════════════════════════════════════════════════════
+     LEARNING OF THE DAY (always visible)
+════════════════════════════════════════════════════════ -->
+<div class="hero" id="learning-of-the-day">
+  <div class="hero-head">
+    <div>
+      <h2>📚 Learning of the Day</h2>
+      <p class="hero-sub">A new word and idiom every day — small daily wins for big communication gains</p>
+    </div>
+    <span class="badge badge-blue" id="lotd-date"></span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-card">
+      <div class="hero-label">Word of the Day</div>
+      <div class="hero-word" id="word-of-day">—</div>
+      <div class="hero-pos" id="word-pos">—</div>
+      <div class="hero-def" id="word-def">—</div>
+      <div class="hero-example" id="word-example">—</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Idiom of the Day</div>
+      <div class="hero-word" id="idiom-of-day">—</div>
+      <div class="hero-def" id="idiom-meaning">—</div>
+      <div class="hero-example" id="idiom-example">—</div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════
      PART 1: ASSESSMENT
@@ -746,7 +1015,58 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
-     PART 8: RESOURCES
+     PART 8: PODCAST
+════════════════════════════════════════════════════════ -->
+<section class="section" id="podcast">
+  <h2>🎙️ Listen &amp; Learn — Podcast Corner</h2>
+  <p class="lead">Tune in to real career conversations. Listening to native, fluent English speakers discuss real-world topics trains your ear, expands vocabulary, and shows you executive communication in action.</p>
+
+  <div class="card">
+    <div class="podcast-card">
+      <div class="podcast-thumb">🎧</div>
+      <div class="podcast-info">
+        <div class="tag-row"><span class="badge badge-purple">Recommended</span><span class="badge badge-blue">Career &amp; Communication</span></div>
+        <h3>कोडOS Podcast</h3>
+        <p style="font-size:14px; color:var(--text2); margin-top:0.5rem;">Real, unscripted career conversations across tech, design, finance, and startups. Built by learners, for everyone — a great way to absorb natural executive English while learning from real professionals' journeys.</p>
+        <div class="podcast-links">
+          <a class="podcast-link" href="https://youtube.com/@codeospodcasts" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="podcast-link" href="https://open.spotify.com" target="_blank" rel="noopener">🎵 Spotify</a>
+          <a class="podcast-link" href="https://music.amazon.com" target="_blank" rel="noopener">🎶 Amazon Music</a>
+          <a class="podcast-link" href="https://podcasts.google.com" target="_blank" rel="noopener">🔊 Google Podcasts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>How to use podcasts to improve your English</h3>
+    <div class="podcast-episode-grid">
+      <div class="podcast-episode">
+        <div class="ep-tag">Step 1 · Listen</div>
+        <h4>First pass — just listen</h4>
+        <p>Play an episode during your commute. Don't take notes — just absorb tone, pacing, and natural phrasing.</p>
+      </div>
+      <div class="podcast-episode">
+        <div class="ep-tag">Step 2 · Shadow</div>
+        <h4>Second pass — repeat aloud</h4>
+        <p>Pause every 1–2 sentences and repeat what was said in the same tone. This trains rhythm and intonation.</p>
+      </div>
+      <div class="podcast-episode">
+        <div class="ep-tag">Step 3 · Collect</div>
+        <h4>Third pass — phrase mining</h4>
+        <p>Write down 3 useful phrases or transitions you heard and use one of them in a meeting this week.</p>
+      </div>
+      <div class="podcast-episode">
+        <div class="ep-tag">Step 4 · Summarize</div>
+        <h4>Fourth pass — summarize aloud</h4>
+        <p>After the episode, record yourself giving a 60-second summary using the BLUF framework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PART 9: RESOURCES
 ════════════════════════════════════════════════════════ -->
 <section class="section" id="resources">
   <h2>Resource Library</h2>
@@ -756,6 +1076,13 @@
 </section>
 
 </main>
+
+<footer class="site-footer">
+  <p>Developed with Claude by Omkar</p>
+  <a class="footer-social" href="https://www.linkedin.com/in/omkar-khandalkar/" target="_blank" rel="noopener">in&nbsp; Connect on LinkedIn</a>
+</footer>
+
+<button class="scroll-top" id="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Scroll to top" title="Back to top">↑</button>
 
 <script>
 // ─── Navigation ───────────────────────────────────────────
@@ -1346,6 +1673,14 @@ const resources = [
     { rank: 2, type: 'YouTube', name: 'Nancy Duarte — Resonate', why: 'One of the best talks on presentation structure. Free on YouTube.' },
     { rank: 3, type: 'Podcast', name: 'The Moth Podcast', why: 'Stories told live by real people. Study the structure, pace, and detail selection.' },
   ]},
+  { cat: 'Must-Read Books for Designers', color: 'badge-blue', items: [
+    { rank: 1, type: 'Book', name: 'The Design of Everyday Things — Don Norman', why: 'The foundational text on usability and human-centered design. Changes how you see every object and interface.' },
+    { rank: 2, type: 'Book', name: 'Don\'t Make Me Think — Steve Krug', why: 'A fast, practical read on intuitive web and product usability. Industry standard for UX fundamentals.' },
+    { rank: 3, type: 'Book', name: 'Hooked — Nir Eyal', why: 'Explains the psychology behind habit-forming products — essential for product designers shaping engagement.' },
+    { rank: 4, type: 'Book', name: 'Sprint — Jake Knapp', why: 'A step-by-step guide to solving big design problems in five days. Great for facilitation skills.' },
+    { rank: 5, type: 'Book', name: 'Refactoring UI — Adam Wathan & Steve Schoger', why: 'Practical, visual lessons for making interfaces look polished and professional without a design degree.' },
+    { rank: 6, type: 'Book', name: 'The Laws of UX — Jon Yablonski', why: 'Connects psychology principles directly to design decisions — useful for justifying choices to stakeholders.' },
+  ]},
 ];
 
 function renderResources() {
@@ -1366,6 +1701,72 @@ function renderResources() {
 }
 
 renderResources();
+
+// ─── Theme Toggle ──────────────────────────────────────────
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-toggle-btn').textContent = theme === 'dark' ? '☀️' : '🌙';
+  try { localStorage.setItem('codeos-comm-theme', theme); } catch (e) {}
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+(function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('codeos-comm-theme'); } catch (e) {}
+  if (saved) { applyTheme(saved); return; }
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark ? 'dark' : 'light');
+})();
+
+// ─── Scroll to top ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scroll-top-btn');
+  const scrolledNearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 200);
+  const scrolledDown = window.scrollY > 400;
+  if (scrolledNearBottom || scrolledDown) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+// ─── Learning of the Day ───────────────────────────────────
+const learningBank = [
+  { word: 'Ubiquitous', pos: 'adjective · /yoo-BIK-wi-tuhs/', def: 'Present, appearing, or found everywhere.', wexample: '"User feedback loops are ubiquitous in well-run product teams."',
+    idiom: 'Move the needle', imeaning: 'To make a noticeable, meaningful difference or impact.', iexample: '"This redesign won\'t move the needle unless we also fix onboarding."' },
+  { word: 'Synergy', pos: 'noun · /SIN-er-jee/', def: 'The combined effect of people or things working together that is greater than the sum of their separate effects.', wexample: '"There\'s real synergy between the design and growth teams this quarter."',
+    idiom: 'On the same page', imeaning: 'In agreement; having the same understanding about something.', iexample: '"Let\'s sync briefly to make sure we\'re on the same page before the review."' },
+  { word: 'Pragmatic', pos: 'adjective · /prag-MAT-ik/', def: 'Dealing with things sensibly and realistically, based on practical considerations.', wexample: '"Given the deadline, a pragmatic approach is to ship the core flow first."',
+    idiom: 'Back to the drawing board', imeaning: 'To start a task or plan again because the previous attempt failed.', iexample: '"The test results were poor, so it\'s back to the drawing board for the checkout flow."' },
+  { word: 'Articulate', pos: 'verb · /ar-TIK-yoo-layt/', def: 'To express an idea or feeling clearly and effectively in words.', wexample: '"She articulated the tradeoffs so clearly that leadership approved it instantly."',
+    idiom: 'Cut to the chase', imeaning: 'To get to the point without wasting time on unnecessary details.', iexample: '"I\'ll cut to the chase — we need two more days to fix this properly."' },
+  { word: 'Cohesive', pos: 'adjective · /koh-HEE-siv/', def: 'Forming a unified whole; sticking together well.', wexample: '"The new design system makes the product feel far more cohesive."',
+    idiom: 'Think outside the box', imeaning: 'To think creatively, beyond conventional or expected approaches.', iexample: '"We need to think outside the box if we want to solve this within budget."' },
+  { word: 'Mitigate', pos: 'verb · /MIT-i-gayt/', def: 'To make something less severe, serious, or painful.', wexample: '"Adding a confirmation step will mitigate the risk of accidental deletions."',
+    idiom: 'Hit the ground running', imeaning: 'To start a new activity or task with energy and enthusiasm right away.', iexample: '"The new designer hit the ground running and shipped two flows in week one."' },
+  { word: 'Iterate', pos: 'verb · /IT-uh-rayt/', def: 'To perform a process repeatedly, refining it each time, in order to reach a desired result.', wexample: '"We\'ll iterate on the prototype based on this week\'s usability test."',
+    idiom: 'Get the ball rolling', imeaning: 'To start a process or activity.', iexample: '"Let\'s get the ball rolling on the research plan today."' },
+  { word: 'Resilient', pos: 'adjective · /ri-ZIL-yuhnt/', def: 'Able to withstand or recover quickly from difficult conditions.', wexample: '"A resilient design system can absorb new requirements without breaking."',
+    idiom: 'Read between the lines', imeaning: 'To understand the hidden or implied meaning of something, beyond what is stated.', iexample: '"Reading between the lines, leadership wants this shipped faster than the brief suggests."' },
+];
+
+(function renderLearningOfDay() {
+  const start = new Date(2024, 0, 1);
+  const today = new Date();
+  const dayIndex = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+  const entry = learningBank[((dayIndex % learningBank.length) + learningBank.length) % learningBank.length];
+
+  document.getElementById('lotd-date').textContent = today.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+  document.getElementById('word-of-day').textContent = entry.word;
+  document.getElementById('word-pos').textContent = entry.pos;
+  document.getElementById('word-def').textContent = entry.def;
+  document.getElementById('word-example').textContent = entry.wexample;
+  document.getElementById('idiom-of-day').textContent = entry.idiom;
+  document.getElementById('idiom-meaning').textContent = entry.imeaning;
+  document.getElementById('idiom-example').textContent = entry.iexample;
+})();
 </script>
 </body>
 </html>
